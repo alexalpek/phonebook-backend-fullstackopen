@@ -17,6 +17,7 @@ app.use(
         ":method :url :status :res[content-length] - :response-time ms :body"
     )
 );
+app.use(express.static("build"));
 
 let persons = [
     { name: "Arto Hellas", number: "040-123456", id: 1 },
