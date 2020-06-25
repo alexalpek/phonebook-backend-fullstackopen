@@ -76,7 +76,7 @@ app.post("/api/persons", (req, res) => {
 
 app.put("/api/persons/:id"),
     (request, response) => {
-        const id = request.params.id;
+        const id = Number(request.params.id);
         const body = request.body;
         if (!body.name || !body.number) {
             return res.status(400).json({
