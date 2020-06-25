@@ -83,11 +83,6 @@ app.put("/api/persons/:id", (request, response) => {
         });
     }
     const currentData = persons.find((person) => person.id === id);
-    console.log(
-        `this is currentdata: ${JSON.stringify(
-            currentData
-        )} for the ID of ${id}`
-    );
     const newPersonData = { ...currentData, number: body.number };
     persons = persons.map((person) =>
         person.id === id ? newPersonData : person
