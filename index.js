@@ -75,20 +75,20 @@ app.post("/api/persons", (req, res) => {
 });
 
 app.put("/api/persons/:id", (request, response) => {
-        const id = Number(request.params.id);
-        const body = request.body;
-        if (!body.name || !body.number) {
-            return res.status(400).json({
-                error: "name or number is missing",
-            });
-        }
-        const currentData = persons.find((person) => (person.id = id));
-        const newPersonData = { ...currentData, number: body.number };
-        persons = persons.map((person) =>
-            person.id === id ? newPersonData : person
-        );
-        response.status(200).send(newPersonData);
-    };
+    const id = Number(request.params.id);
+    const body = request.body;
+    if (!body.name || !body.number) {
+        return res.status(400).json({
+            error: "name or number is missing",
+        });
+    }
+    const currentData = persons.find((person) => (person.id = id));
+    const newPersonData = { ...currentData, number: body.number };
+    persons = persons.map((person) =>
+        person.id === id ? newPersonData : person
+    );
+    response.status(200).send(newPersonData);
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
